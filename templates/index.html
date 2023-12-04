@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Accueil{% endblock %}
+{% block content %}
+<div id="msg-bienvenu">
+    <h1>Bienvenu chez AdopteUnCompagnon, un refuge animal où vous pourrez trouver un petit animal pour 
+        mettre du bonheur dans votre vie ou bien mettre en adoption votre animal de compagnie!
+    </h1>
+    <h2>Voici un aperçu de quelques animaux qui sont présentement mis à l'adoption :</h2>
+</div>
+{% for animal in animaux %}
+<div class="presentation-animal">
+<h3>Nom : {{animal.nom}}</h3>
+<img src="{{ url_for('static',filename='img/img_' + animal.nom + '.jpg') }}" alt="Photo de l'animal à présenter">
+<ul>
+    <li>Espèce : {{animal.espece}}</li>
+    <li>Race : {{animal.race}}</li>
+    <li>Âge : {{animal.age}}</li>
+    <li><a href="">Cliquer ici pour en savoir plus sur {{animal.nom}}!</a></li>
+</ul>
+</div>
+{% endfor %}
+{% endblock %}

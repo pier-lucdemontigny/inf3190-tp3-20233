@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+    <div id="section-logo">
+        <p><span id ="adopte">Adopte</span><span id="un">Un</span><span id="compagnon">Compagnon</span></p>
+        <img src="{{ url_for('static', filename='img/img_logo.jpg') }}" alt="Logo du refuge">
+    </div>
+    <div id="menu-nav">
+            <a href="/">Accueil</a>
+            <a href="/formulaire-adoption">Mettre un animal en adoption</a>
+    </div>
+
+    <div class="contenu">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+
+</html>
