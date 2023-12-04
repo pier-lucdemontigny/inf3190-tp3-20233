@@ -15,6 +15,7 @@
 from flask import Flask
 from flask import render_template
 from flask import g
+import random
 from .database import Database
 
 app = Flask(__name__, static_url_path="", static_folder="static")
@@ -33,8 +34,14 @@ def close_connection(exception):
     if db is not None:
         db.disconnect()
 
-
 @app.route('/')
+def index():
+    db = get_db()
+    liste_animaux = db.get_animaux()
+    animaux = random.choices(liste_animaux, k=5)
+    return render_template('index.html', animaux=animaux)
+
+@app.route('/formulaire-adoption')
 def form():
     # À remplacer par le contenu de votre choix.
     return render_template('form.html')
