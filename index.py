@@ -105,5 +105,12 @@ def recherche_animal(query):
 @app.route('/resultats_recherche')
 def search():
     query = request.args.get('q')
+    if not query:
+        abort(404)
     resultats = recherche_animal(query)
     return render_template('resultats.html', resultats=resultats)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
