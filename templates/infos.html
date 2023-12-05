@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Accueil{% endblock %}
+{% block content %}
+<div id="msg-infos">
+<h1>Voici les informations concernant {{animal.nom}} : </h1>
+</div>
+<div class="presentation-animal">
+<h2>Nom : {{animal.nom}}</h2>
+<img src="{{ url_for('static',filename='img/img_' + animal.nom + '.jpg') }}" alt="Photo de l'animal à présenter">
+<ul>
+    <li>Espèce : {{animal.espece}}</li>
+    <li>Race : {{animal.race}}</li>
+    <li>Âge : {{animal.age}}</li>
+    <li>Description : {{animal.description}}</li>
+    <li>Adresse : {{animal.adresse}}</li>
+    <li>Ville : {{animal.ville}}</li>
+    <li>Code Postal : {{animal.cp}}</li>
+    <li>Pour rejoindre le propriétaire, voici son adresse courriel : <a href="mailto:{{animal.courriel}}">{{animal.courriel}}</a></li>
+</ul>
+</div>
+{% endblock %}
