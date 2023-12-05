@@ -1,5 +1,38 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('adoptionForm');
     const submitButton = document.getElementById('soumission');
+
+    form.addEventListener('input', function (event) {
+        switch (event.target.id) {
+            case 'nom':
+                validateNom();
+                break;
+            case 'espece':
+                validateEspece();
+                break;
+            case 'race':
+                validateRace();
+                break;
+            case 'age':
+                validateAge();
+                break;
+            case 'description':
+                validateDescription();
+                break;
+            case 'courriel':
+                validateCourriel();
+                break;
+            case 'adresse':
+                validateAdresse();
+                break;
+            case 'ville':
+                validateVille();
+                break;
+            case 'cp':
+                validateCp();
+                break;
+        }
+    });
 
     submitButton.addEventListener('click', function (event) {
         if (!validateForm()) {
