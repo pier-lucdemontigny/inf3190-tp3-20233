@@ -7,14 +7,14 @@
 
 <hr>
 <div class="presentation-animal">
-    <h3>Nom: {{ nom }}</h3>
-    <h3>Espèce: {{ espece }}</h3>
-    <h3>Race: {{ race }}</h3>
-    <h3>Âge: {{ age }}</h3>
-    <h3>Description: {{ description }}</h3>
-    <h3>Courriel: {{ courriel }}</h3>
-    <h3>Adresse: {{ adresse }}</h3>
-    <h3>Ville: {{ ville }}</h3>
-    <h3>Code Postal: {{ cp }}</h3>
+    <h3>Nom: {{ animal.nom }}</h3>
+    <h3>Espèce: {{ animal.espece }}</h3>
+    <h3>Race: {{ animal.race }}</h3>
+    <h3>Âge: {{ animal.age }}</h3>
+    <h3>Description: {{ animal.description }}</h3>
+    <h3>Courriel: <a href="mailto:{{ animal.courriel }}">{{ animal.courriel }}</a></h3>
+    <h3>Adresse: {{ animal.adresse }}</h3>
+    <h3>Ville: {{ animal.ville }}</h3>
+    <h3>Code Postal: {{ animal.cp }}</h3>
 </div>
 {% endblock %}

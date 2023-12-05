@@ -18,7 +18,6 @@ from flask import g
 from flask import request
 import random
 from .database import Database
-import sqlite3
 from werkzeug.exceptions import BadRequest
 import re
 
@@ -59,7 +58,7 @@ def form():
 
 
 @app.route('/formulaire-soumis', methods=['POST'])
-def submit_form():
+def soumission_form():
     nom = request.form.get('nom')
     espece = request.form.get('espece')
     race = request.form.get('race')
@@ -85,34 +84,21 @@ def submit_form():
         raise BadRequest("Le code postal doit avoir un format canadien.")
 
     # Ajout des données a la BD
-    conn = sqlite3.connect('db/animaux.db')
-    cursor = conn.cursor()
+    db = get_db()
+    lastId = db.add_animal(nom, espece, race, age, description, courriel, adresse, ville, cp)
 
-    query = """
-        INSERT INTO animaux (nom, espece, race, age, description, courriel, adresse, ville, cp)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-    """
-    cursor.execute(query, (nom, espece, race, age, description, courriel, adresse, ville, cp))
-    conn.commit()
-    conn.close()
-
-    return render_template('animal.html', nom=nom, espece=espece, race=race, age=age, description=description, courriel=courriel, adresse=adresse, ville=ville, cp=cp), 200
-
+    animal = db.get_animal(lastId)
+    return render_template('animal.html', animal=animal), 200
 
 def recherche_animal(query):
-    conn = sqlite3.connect('db/animaux.db')
-    conn.row_factory = sqlite3.Row  
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM animaux WHERE nom LIKE ?", ('%' + query + '%',))
-    resultats = [dict(row) for row in cursor.fetchall()]  
-    conn.close()
+    db = get_db()
+    resultats = db.get_animaux()
+    resultats = [animal for animal in resultats if animal['nom'] and query.lower() in animal['nom'].lower()]
     return resultats
 
 @app.route('/resultats_recherche')
-def search():
+def recherche():
     query = request.args.get('q')
-    if not query:
-        abort(404)
     resultats = recherche_animal(query)
     return render_template('resultats.html', resultats=resultats)
 
