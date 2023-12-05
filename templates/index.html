@@ -22,7 +22,7 @@
     <li>Espèce : {{animal.espece}}</li>
     <li>Race : {{animal.race}}</li>
     <li>Âge : {{animal.age}}</li>
-    <li><a href="">Cliquer ici pour en savoir plus sur {{animal.nom}}!</a></li>
+    <li><a href="{{url_for('animal', id=animal.id)}}">Cliquer ici pour en savoir plus sur {{animal.nom}}!</a></li>
 </ul>
 </div>
 {% endfor %}
