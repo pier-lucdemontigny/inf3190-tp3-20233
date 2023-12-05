@@ -46,6 +46,12 @@ def index():
     animaux = random.choices(liste_animaux, k=5)
     return render_template('index.html', animaux=animaux)
 
+@app.route('/animal/<id>')
+def animal(id):
+    db = get_db()
+    animal = db.get_animal(id)
+    return render_template('infos.html',animal = animal)
+
 @app.route('/formulaire-adoption')
 def form():
     return render_template('form.html')
