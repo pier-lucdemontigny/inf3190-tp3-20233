@@ -5,8 +5,15 @@
     <h1>Bienvenu chez AdopteUnCompagnon, un refuge animal où vous pourrez trouver un petit animal pour 
         mettre du bonheur dans votre vie ou bien mettre en adoption votre animal de compagnie!
     </h1>
+    <div class="recherche">
+        <form action="/resultats_recherche" method="get">
+            <input type="text" name="q" placeholder="Rechercher un animal">
+            <input type="submit" value="Rechercher">
+        </form>
+    </div>
     <h2>Voici un aperçu de quelques animaux qui sont présentement mis à l'adoption :</h2>
 </div>
+
 {% for animal in animaux %}
 <div class="presentation-animal">
 <h3>Nom : {{animal.nom}}</h3>

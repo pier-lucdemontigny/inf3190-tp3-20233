@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}Formulaire{% endblock %}
+{% block content %}
+<div id="msg-bienvenu">
+    <h1>Voulez-vous mettre un animal en adoption? <br/>
+        Veuillez remplir le formulaire ci-dessus.
+    </h1>
+</div>
+
+<hr>
+
+<form id="adoptionForm" method="post" action="/formulaire-soumis">
+    <label for="nom">Nom de l'animal : </label>
+    <div class="field-container">
+        <input type="text" id="nom" name="nom" onchange="validateNom()">
+        <p id="erreurNom"></p>
+    </div>
+    
+    <label for="espece">Espèce de l'animal : </label>
+    <div class="field-container">
+        <input type="text" id="espece" name="espece" onchange="validateEspece()">
+        <p id="erreurEspece"></p>
+    </div>
+    
+    <label for="race">Race de l'animal : </label>
+    <div class="field-container">
+        <input type="text" id="race" name="race" onchange="validateRace()">
+        <p id="erreurRace"></p>
+    </div>
+    
+    <label for="age">Âge de l'animal : </label>
+    <div class="field-container">
+        <input type="number" id="age" name="age" onchange="validateAge()">
+        <p id="erreurAge"></p>
+    </div>
+    
+    <label for="description">Description:</label>
+    <div class="field-container">
+        <textarea id="description" name="description" onchange="validateDesciption()"></textarea>
+        <p id="erreurDesc"></p>
+    </div>
+    
+    <label for="courriel">Votre adresse courriel:</label>
+    <div class="field-container">
+        <input type="email" id="courriel" name="courriel" onchange="validateCourriel()">
+        <p id="erreurCourriel"></p>
+    </div>
+    
+    <label for="adresse">Adresse civique : </label>
+    <div class="field-container">
+        <input type="text" id="adresse" name="adresse" onchange="validateAdresse()">
+        <p id="erreurAdresse"></p>
+    </div>
+    
+    <label for="ville">Ville : </label>
+    <div class="field-container">
+        <input type="text" id="ville" name="ville" onchange="validateVille()">
+        <p id="erreurVille"></p>
+    </div>
+    
+    <label for="codePostal">Code postal : </label>
+    <div class="field-container">
+        <input type="text" id="cp" name="cp" onchange="validateCp()">
+        <p id="erreurCode"></p>
+    </div>
+
+    <div class="field-container">
+        <button type="submit" id="soumission">Soumettre</button>
+    </div>
+</form>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

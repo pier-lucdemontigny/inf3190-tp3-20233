@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Accueil{% endblock %}
+{% block content %}
+<div id="msg-bienvenu">
+    <h1>Merci! Votre animal a été mis en adoption avec succès</h1>
+</div>
+
+<hr>
+<div class="presentation-animal">
+    <h3>Nom: {{ nom }}</h3>
+    <h3>Espèce: {{ espece }}</h3>
+    <h3>Race: {{ race }}</h3>
+    <h3>Âge: {{ age }}</h3>
+    <h3>Description: {{ description }}</h3>
+    <h3>Courriel: {{ courriel }}</h3>
+    <h3>Adresse: {{ adresse }}</h3>
+    <h3>Ville: {{ ville }}</h3>
+    <h3>Code Postal: {{ cp }}</h3>
+</div>
+{% endblock %}
