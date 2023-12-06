@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="fr-CA">
-<head>
-    <title>Page Not Found</title>
-</head>
-<body>
-    <h1>404: Page Not Found</h1>
-    <p>The page you requested could not be found.</p>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Page non trouvée{% endblock %}
+{% block content %}
+<div id="erreur-404">
+    <img src="{{url_for('static', filename='img/img_404.jpg')}}" alt="Image illustrant une erreur 404">
+    <h1>Erreur 404</h1>
+    <h3>Nous n'avons malheursement pas pu trouvé la page que vous avez demandé!</h3>
+    <p>Vous pouvez retourner à notre page d'accueil en <a href="/">cliquant ici!</a></p>
+</div>
+{% endblock %}

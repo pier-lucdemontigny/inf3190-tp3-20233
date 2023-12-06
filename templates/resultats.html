@@ -7,11 +7,11 @@
 {% for animal in resultats %}
 <div class="presentation-animal">
 <h3>Nom : {{animal.nom}}</h3>
-<img src="{{ url_for('static',filename='img/img_' + animal.nom + '.jpg') }}" alt="Photo de l'animal à présenter">
 <ul>
     <li>Espèce : {{animal.espece}}</li>
     <li>Race : {{animal.race}}</li>
     <li>Âge : {{animal.age}}</li>
+    <li>Description : {{animal.description}}</li>
     <li><a href="{{ url_for('animal', id=animal.id) }}">Cliquer ici pour en savoir plus sur {{animal.nom}}!</a></li>
 </ul>
 </div>

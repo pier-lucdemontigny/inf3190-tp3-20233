@@ -98,8 +98,8 @@ def recherche_animal(query):
                                                        query.lower() in (animal['espece'].lower() if animal['espece'] else '') or 
                                                        query.lower() in (animal['race'].lower() if animal['race'] else '') or 
                                                        query.lower() in (animal['description'].lower() if animal['description'] else '') or 
-                                                       query.lower() in (animal['courriel'].lower() if animal['courriel'] else '') or 
-                                                       query.lower() in (animal['ville'].lower() if animal['ville'] else '') or
+                                                       query.lower() == (animal['courriel'].lower() if animal['courriel'] else '') or 
+                                                       query.lower() == (animal['ville'].lower() if animal['ville'] else '') or
                                                        query.lower() == (animal['cp'].lower() if animal['cp'] else '') or
                                                        query.lower() == (animal['adresse'].lower() if animal['adresse'] else '')]
     return resultats
