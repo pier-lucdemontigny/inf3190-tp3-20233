@@ -122,10 +122,11 @@ textarea {
     width: 70%;
     padding: 8px;
     margin-bottom: 15px;
+    font-size: 16px;
 }
 
 .field-container button {
-    background-color: #4CAF50;
+    background-color: rgba(136,168,41,255);
     color: white;
     padding: 10px;
     border: none;
@@ -133,6 +134,8 @@ textarea {
     cursor: pointer;
     width: 70%;
     font-size: 20px;
+    height: 50px;
+    margin-bottom: 50px;
 }
 
 .field-container button:hover {
@@ -201,4 +204,31 @@ textarea {
 
 #erreur-404 h3, p{
     font-size: 20px;
+}
+
+#section-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: rgba(136,168,41,255);
+    color: white;
+}
+
+#section-footer .footer-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+#section-footer .footer-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#section-footer .footer-section p {
+    margin-bottom: 10px;
+}
+
+#section-footer .footer-section a {
+    color: white;
+    text-decoration: none;
 }

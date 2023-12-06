@@ -74,6 +74,8 @@ def soumission_form():
         raise BadRequest("Tout les champs sont requis")
     if ',' in nom or ',' in espece or ',' in race or ',' in age or ',' in description or ',' in courriel or ',' in adresse or ',' in ville or ',' in cp:
         raise BadRequest("Les champs ne peuvent pas contenir de virgules")
+    if len(nom) < 3 or len(nom) > 20:
+        raise BadRequest("Nom doit être entre 3 et 20 caractères")
     if not nom.isalpha() or not espece.isalpha() or not race.isalpha() or not ville.isalpha():
         raise BadRequest("Nom, Espèce, Race, and Ville ne doivent pas contenir de chiffres")
     if not age.isdigit() or int(age) < 0 or int(age) > 30:

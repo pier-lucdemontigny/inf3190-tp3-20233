@@ -116,10 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!field.value.trim()) {
             displayError(errorMessageElement, `${fieldName} est obligatoire.`);
             return false;
-        } else if (field.value.includes(',')) {
-            displayError(errorMessageElement, `${fieldName} ne peut pas contenir une virgule.`);
-            return false;
-        } else if (isNaN(field.value) || field.value < 0 || field.value > 30) {
+        } else if (!/^\d+$/.test(field.value) || field.value < 0 || field.value > 30) {
             displayError(errorMessageElement, `L'âge doit être une valeur numérique entre 0 et 30.`);
             return false;
         }
