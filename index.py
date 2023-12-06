@@ -90,10 +90,18 @@ def soumission_form():
     animal = db.get_animal(lastId)
     return render_template('animal.html', animal=animal), 200
 
+
 def recherche_animal(query):
     db = get_db()
     resultats = db.get_animaux()
-    resultats = [animal for animal in resultats if animal['nom'] and query.lower() in animal['nom'].lower()]
+    resultats = [animal for animal in resultats if query.lower() in (animal['nom'].lower() if animal['nom'] else '') or 
+                                                       query.lower() in (animal['espece'].lower() if animal['espece'] else '') or 
+                                                       query.lower() in (animal['race'].lower() if animal['race'] else '') or 
+                                                       query.lower() in (animal['description'].lower() if animal['description'] else '') or 
+                                                       query.lower() in (animal['courriel'].lower() if animal['courriel'] else '') or 
+                                                       query.lower() in (animal['ville'].lower() if animal['ville'] else '') or
+                                                       query.lower() == (animal['cp'].lower() if animal['cp'] else '') or
+                                                       query.lower() == (animal['adresse'].lower() if animal['adresse'] else '')]
     return resultats
 
 @app.route('/resultats_recherche')
