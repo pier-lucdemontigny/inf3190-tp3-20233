@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('adoptionForm');
     const submitButton = document.getElementById('soumission');
 
-    form.addEventListener('input', function (event) {
+    form.addEventListener('change', function (event) {
         switch (event.target.id) {
             case 'nom':
                 validateNom();
