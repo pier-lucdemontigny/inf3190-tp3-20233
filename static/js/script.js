@@ -134,6 +134,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!field.value.trim()) {
             displayError(errorMessageElement, `${fieldName} est obligatoire.`);
             return false;
+        } else if (field.value.includes(',')) {
+            displayError(errorMessageElement, `${fieldName} ne doit pas contenir une virgule.`);
+            return false;
         }
     
         return true;

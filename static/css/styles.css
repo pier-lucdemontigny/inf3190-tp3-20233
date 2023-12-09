@@ -73,24 +73,20 @@
 }
 
 .presentation-animal{
+    width: 750px;
+    height: 250px;
     text-align: center;
     padding-top: 20px;
-    padding-bottom: 20px;
-    margin-bottom: 2px;
+    margin-left: 550px;
+    margin-bottom: 30px;
     border-style: solid;
-    border-color: black;
     border-width: 2px;
     border-color: rgba(136,168,41,255);
+    background-color: rgba(136, 168, 41, 0.425);
 }
 
 .presentation-animal h3{
     font-size: 25px;
-    padding-bottom: 10px;
-}
-
-.presentation-animal img{
-    height: 400px;
-    width: 600px;
     padding-bottom: 10px;
 }
 
@@ -100,9 +96,36 @@
 
 .presentation-animal li{
     font-size: 20px;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
 }
 
+.presentation-adoption { 
+    height: 400px;
+    width: 750px;
+    text-align: center;
+    padding-top: 20px;
+    margin-left: 550px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(136,168,41,255);
+    background-color: rgba(136, 168, 41, 0.425);
+}
+
+.presentation-adoption h3{
+    font-size: 25px;
+    padding-bottom: 10px;
+}
+
+.presentation-adoption ul{
+    list-style: none;
+}
+
+.presentation-adoption li{
+    font-size: 20px;
+    padding-bottom: 15px;
+}
 
 form {
     max-width: 900px;
@@ -198,12 +221,12 @@ textarea {
 }
 
 #erreur-404 img{
-    width: 600px;
-    height: 600px;
+    width: 550px;
+    height: 550px;
 }
 
 #erreur-404 h3, p{
-    font-size: 20px;
+    font-size: 23px;
 }
 
 #section-footer {
