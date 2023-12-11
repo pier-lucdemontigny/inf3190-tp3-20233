@@ -38,6 +38,7 @@ def close_connection(exception):
     if db is not None:
         db.disconnect()
 
+# Index, page d'accueil
 @app.route('/')
 def index():
     db = get_db()
@@ -45,18 +46,19 @@ def index():
     animaux = random.choices(liste_animaux, k=5)
     return render_template('index.html', animaux=animaux)
 
+# Page d'informations sur un animale
 @app.route('/animal/<id>')
 def animal(id):
     db = get_db()
     animal = db.get_animal(id)
     return render_template('infos.html',animal = animal)
 
+# Page de formulaire
 @app.route('/formulaire-adoption')
 def form():
     return render_template('form.html')
 
-
-
+# Page de soumision
 @app.route('/formulaire-soumis', methods=['POST'])
 def soumission_form():
     nom = request.form.get('nom')
@@ -92,7 +94,7 @@ def soumission_form():
     animal = db.get_animal(lastId)
     return render_template('animal.html', animal=animal), 200
 
-
+# Recherche d'un animal
 def recherche_animal(query):
     db = get_db()
     resultats = db.get_animaux()
@@ -106,13 +108,14 @@ def recherche_animal(query):
                                                        query.lower() == (animal['adresse'].lower() if animal['adresse'] else '')]
     return resultats
 
+# Page de resultat de recherche
 @app.route('/resultats_recherche')
 def recherche():
     query = request.args.get('q')
     resultats = recherche_animal(query)
     return render_template('resultats.html', resultats=resultats)
 
-
+# Page non trouve (404)
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
