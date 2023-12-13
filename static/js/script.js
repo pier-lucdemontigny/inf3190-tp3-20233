@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
             displayError(errorMessageElement, `${fieldName} ne peut pas contenir une virgule.`);
             return false;
         } else if (field.value.length < 3 || field.value.length > 20) {
-            displayError(errorMessageElement, `Le nom de l"animal doit avoir entre 3 et 20 caractères.`);
+            displayError(errorMessageElement, `Le nom de l'animal doit avoir entre 3 et 20 caractères.`);
             return false;
         } else if (/\d/.test(field.value)) {
             displayError(errorMessageElement, `${fieldName} ne doit pas contenir de chiffre.`);
@@ -138,11 +138,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!field.value.trim()) {
             displayError(errorMessageElement, `${fieldName} est obligatoire.`);
             return false;
-        } else if (!/^\d+$/.test(field.value) || field.value < 0 || field.value > 30) {
-            displayError(errorMessageElement, `L"âge doit être une valeur numérique entre 0 et 30.`);
-            return false;
         }else if (field.value.includes(",")) {
             displayError(errorMessageElement, `${fieldName} ne peut pas contenir une virgule.`);
+            return false;
+        } else if (!/^\d+$/.test(field.value) || field.value < 0 || field.value > 30) {
+            displayError(errorMessageElement, `L'âge doit être une valeur numérique entre 0 et 30.`);
             return false;
         }
     
@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(field.value)) {
-                displayError(errorMessageElement, `L"adresse courriel doit avoir un format valide.`);
+                displayError(errorMessageElement, `L'adresse courriel doit avoir un format valide.`);
                 return false;
             }
         }
