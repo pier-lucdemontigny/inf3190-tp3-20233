@@ -43,7 +43,7 @@ def close_connection(exception):
 def index():
     db = get_db()
     liste_animaux = db.get_animaux()
-    animaux = random.choices(liste_animaux, k=5)
+    animaux = random.sample(liste_animaux, 5)
     return render_template('index.html', animaux=animaux)
 
 # Page d'informations sur un animale
@@ -51,7 +51,10 @@ def index():
 def animal(id):
     db = get_db()
     animal = db.get_animal(id)
-    return render_template('infos.html',animal = animal)
+    if animal is None:
+        return render_template('404.html'), 404
+    else:
+        return render_template('infos.html',animal = animal)
 
 # Page de formulaire
 @app.route('/formulaire-adoption')
