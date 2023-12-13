@@ -8,7 +8,7 @@
 ## Comment installer et exécuter le projet
 
 ### Étape 1
-Confirmer que Flask, Python 3 et pip3 est installé en fesant les commandes suivantes dans le terminal :
+Confirmer que Flask, Python 3 et pip3 sont installés en fesant les commandes suivantes dans le terminal :
 ```sh
 $ python3 --version
 $ pip3 --version
