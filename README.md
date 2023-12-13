@@ -17,14 +17,13 @@ $ flask --version
 
 Si un de ses modules ne sont pas installés, il peut être installé en fesant une des commandes suivantes dans le terminal :
 ```sh
-$ sudo apt update
 $ sudo apt install python3
 $ sudo apt install python3-pip
 $ pip3 install Flask
 ```
 
 ### Étape 2
-Après avoir décompresser le dossier, ouvrir le terminal dedans est faire les commandes suivantes :
+Après avoir décompresser le dossier, ouvrir le terminal à l'interieur de celui-ci est faire les commandes suivantes :
 ```sh
 $ export FLASK_APP=index.py
 $ FLASK_APP=index.py flask run
