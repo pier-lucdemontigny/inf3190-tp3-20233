@@ -3,7 +3,7 @@
 ## Identification
 
 - Andoulsi, Firas (ANDF79070105)
-- De Montigny, Pier Luc (DEMP64110106)
+- De Montigny, Pier-Luc (DEMP64110106)
 
 ## Comment installer et exécuter le projet
 
