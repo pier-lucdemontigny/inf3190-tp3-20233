@@ -18,7 +18,6 @@ from flask import g
 from flask import request
 import random
 from .database import Database
-from werkzeug.exceptions import BadRequest
 import re
 
 
@@ -75,20 +74,24 @@ def soumission_form():
     cp = request.form.get('cp')
 
     # Validation form niveau backend
+    erreurs = []
     if not nom or not espece or not race or not age or not description or not courriel or not adresse or not ville or not cp:
-        raise BadRequest("Tout les champs sont requis")
+        erreurs.append("Tout les champs sont requis")
     if ',' in nom or ',' in espece or ',' in race or ',' in age or ',' in description or ',' in courriel or ',' in adresse or ',' in ville or ',' in cp:
-        raise BadRequest("Les champs ne peuvent pas contenir de virgules")
+        erreurs.append("Les champs ne peuvent pas contenir de virgules")
     if len(nom) < 3 or len(nom) > 20:
-        raise BadRequest("Nom doit être entre 3 et 20 caractères")
+        erreurs.append("Nom doit être entre 3 et 20 caractères")
     if not nom.isalpha() or not espece.isalpha() or not race.isalpha() or not ville.isalpha():
-        raise BadRequest("Nom, Espèce, Race, and Ville ne doivent pas contenir de chiffres")
+        erreurs.append("Nom, Espèce, Race, and Ville ne doivent pas contenir de chiffres")
     if not age.isdigit() or int(age) < 0 or int(age) > 30:
-        raise BadRequest("Age doit être une valeur numérique entre 0 et 30.")
+        erreurs.append("Age doit être une valeur numérique entre 0 et 30.")
     if not re.match(r"[^@]+@[^@]+\.[^@]+", courriel):
-        raise BadRequest("Courriel invalide")
+        erreurs.append("Courriel invalide")
     if not re.match(r"^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$", cp):
-        raise BadRequest("Le code postal doit avoir un format canadien.")
+         erreurs.append("Le code postal doit avoir un format canadien.")
+    
+    if erreurs:
+        return str(erreurs), 400
 
     # Ajout des données a la BD
     db = get_db()

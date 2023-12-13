@@ -1,4 +1,37 @@
-# inf3190-tp3-20233
+# INF3190 travail pratique 3 Automne 2023
 
-Mettre ici les noms et codes permanents des auteurs, ainsi que les instructions
-pour installer et exécuter le logiciel.
+## Identification
+
+- Andoulsi, Firas (ANDF79070105)
+- De Montigny, Pier Luc (DEMP64110106)
+
+## Comment installer et exécuter le projet
+
+### Étape 1
+Confirmer que Flask, Python 3 et pip3 est installé en fesant les commandes suivantes dans le terminal :
+```sh
+$ python3 --version
+$ pip3 --version
+$ flask --version
+```
+
+Si un de ses modules ne sont pas installés, il peut être installé en fesant une des commandes suivantes dans le terminal :
+```sh
+$ sudo apt update
+$ sudo apt install python3
+$ sudo apt install python3-pip
+$ pip3 install Flask
+```
+
+### Étape 2
+Après avoir décompresser le dossier, ouvrir le terminal dedans est faire les commandes suivantes :
+```sh
+$ export FLASK_APP=index.py
+$ FLASK_APP=index.py flask run
+```
+
+### Étape 3
+Ouvrir le navigateur en suivant le lien inscrit dans le terminal afin d'accéder au site :
+```sh
+http://127.0.0.1:5000
+```
