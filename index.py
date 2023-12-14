@@ -82,7 +82,7 @@ def soumission_form():
     if len(nom) < 3 or len(nom) > 20:
         erreurs.append("Nom doit être entre 3 et 20 caractères")
     if not nom.isalpha() or not espece.isalpha() or not race.isalpha() or not ville.isalpha():
-        erreurs.append("Nom, Espèce, Race, and Ville ne doivent pas contenir de chiffres")
+        erreurs.append("Nom, Espèce, Race, et Ville ne doivent pas contenir de chiffres")
     if not age.isdigit() or int(age) < 0 or int(age) > 30:
         erreurs.append("Age doit être une valeur numérique entre 0 et 30.")
     if not re.match(r"[^@]+@[^@]+\.[^@]+", courriel):
